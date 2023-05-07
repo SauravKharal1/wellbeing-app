@@ -4,6 +4,7 @@ const Achievement = require('../models/Achievement');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 
+
 module.exports = {
   aboutUs: (req, res) => {
     const isAuthenticated = req.isAuthenticated();
@@ -81,6 +82,7 @@ module.exports = {
 
   // Show the learn page
 
+
   showLearn: (req, res) => {
     const isAuthenticated = req.isAuthenticated();
     res.render('learn', { isAuthenticated });
@@ -108,7 +110,7 @@ module.exports = {
         description: req.body.description,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
-        completed: false, // Add this line
+        completed: false,
       });
       await goal.save();
       res.redirect('/goals');
@@ -139,16 +141,6 @@ module.exports = {
 
   },
 
-  // deleteGoalAfterAchievement: async (req, res) => {
-  //   try {
-  //     await Goal.deleteById(req.body.goalId);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // },
-
-  
-  
   // Handling achievements
   showAchievements: async (req, res) => {
     try {
@@ -181,8 +173,6 @@ module.exports = {
       res.status(500).send('Server error');
     }
   },
-  
-      // ...
 
   updateAchievement: async (req, res) => {
     try {

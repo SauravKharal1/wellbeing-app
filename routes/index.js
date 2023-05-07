@@ -3,47 +3,41 @@ const router = express.Router();
 const mainController = require('../controllers/mainController');
 const { ensureAuthenticated } = require('../config/auth');
 
-// Welcome Page
+// This is the route to manage the main index page in the website
 router.get('/', mainController.index);
 
-// About Us Page
+// This is the route to manage the about page in the website
 router.get('/about-us', mainController.aboutUs);
 
-// Register Page
+// This is the route to manage the register page in the website
 router.get('/register', mainController.showRegister);
 router.post('/register', mainController.register);
 
-// Login Page
+// This is the route to manage the Login page in the website
 router.get('/login', mainController.showLogin);
 router.post('/login', mainController.login);
 
 
-// Logout
+// This is the route to manage the Logout page in the website
 router.get('/logout', mainController.logout);
 
-// Dashboard
+// This is the route to manage the Dashboard page in the website
 router.get('/dashboard', ensureAuthenticated, mainController.dashboard);
 
-// Manage Goals
+// This is the route to manage the Manage goals page in the website
 router.get('/goals', ensureAuthenticated, mainController.showGoals);
 router.post('/goals', ensureAuthenticated, mainController.addGoal);
 router.post('/goals/delete/:id', ensureAuthenticated, mainController.deleteGoal);
 
 
-// Manage Achievements
+// This is the route to manage the Manage achievements page in the website
 router.get('/achievements', ensureAuthenticated, mainController.showAchievements);
 router.post('/achievements', ensureAuthenticated, mainController.addAchievement);
 //router.post('/achievements/delete/:id', ensureAuthenticated, mainController.deleteAchievement);
 
-// Manage Learn Page
+// This is the route to manage the Learn page in the website
 router.get('/learn', ensureAuthenticated, mainController.showLearn);
-// router.get('/api/facts/:category', mainController.fetchFact);
 
-
-
-
-
-// Update route handlers 
 
 router.get('/goals/:id/edit', ensureAuthenticated, mainController.showEditGoal);
 router.post('/goals/:id/edit', ensureAuthenticated, mainController.updateGoal);

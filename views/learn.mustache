@@ -1,54 +1,38 @@
 {{> header}}
 
+
+
 <div class="text-center">
   <h1 class="mt-4">Learn More about Improving</h1>
 </div>
 
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-4">
-      <h3 class="box-title">Nutrition Fact</h3>
-      <div class="fact-box" id="nutritionFact">Loading...</div>
-      <button class="btn btn-primary generate-btn" onclick="loadFact('nutrition')">Generate Nutrition Fact</button>
-    </div>
-    <div class="col-md-4">
-      <h3 class="box-title">Fitness Fact</h3>
-      <div class="fact-box" id="fitnessFact">Loading...</div>
-      <button class="btn btn-primary generate-btn" onclick="loadFact('fitness')">Generate Fitness Fact</button>
-    </div>
-    <div class="col-md-4">
-      <h3 class="box-title">Lifestyle Fact</h3>
-      <div class="fact-box" id="lifestyleFact">Loading...</div>
-      <button class="btn btn-primary generate-btn" onclick="loadFact('lifestyle')">Generate Lifestyle Fact</button>
-    </div>
+<div class="main-container">
+  <div class="category-container">
+    <div class="category-title">Nutrition Fact</div>
+    <div class="tip-card">Stay hydrated by drinking at least 8 cups of water per day.</div>
+    <div class="tip-card">Eat a variety of fruits and vegetables to ensure you get essential vitamins and minerals.</div>
+    <div class="tip-card">Choose whole grains over refined grains for better digestion and nutrient absorption.</div>
+    <div class="tip-card">Include lean protein sources like poultry, fish, and beans in your diet to support muscle growth and repair.</div>
+    <div class="tip-card">Consume healthy fats from sources like avocado, nuts, and olive oil for improved heart health.</div>
+  </div>
+
+  <div class="category-container">
+    <div class="category-title">Fitness Fact</div>
+    <div class="tip-card">Exercise for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week.</div>
+    <div class="tip-card">Strength train all major muscle groups at least two times per week.</div>
+    <div class="tip-card">Make time for stretching and flexibility exercises to maintain a healthy range of motion.</div>
+    <div class="tip-card">Remember to warm up before exercise and cool down afterward to prevent injury.</div>
+    <div class="tip-card">Listen to your body and adjust your workout intensity based on how you feel.</div>
+  </div>
+
+  <div class="category-container">
+    <div class="category-title">Lifestyle Fact</div>
+    <div class="tip-card">Get 7-9 hours of sleep per night for optimal mental and physical health.</div>
+    <div class="tip-card">Practice stress-reducing techniques like meditation or yoga to improve mental well-being.</div>
+    <div class="tip-card">Maintain social connections with friends and family for a strong support system.</div>
+    <div class="tip-card">Set realistic goals and break them down into smaller, achievable steps.</div>
+    <div class="tip-card">Make time for hobbies and activities that bring you joy and relaxation.</div>
   </div>
 </div>
-
-<script>
-  const nutritionFacts = {{nutritionFacts}};
-  const fitnessFacts = {{fitnessFacts}};
-  const lifestyleFacts = {{lifestyleFacts}};
-
-  function loadFact(type) {
-    const factBox = document.getElementById(`${type}Fact`);
-    const facts = getFacts(type);
-    const randomIndex = Math.floor(Math.random() * facts.length);
-    const randomFact = facts[randomIndex];
-    factBox.textContent = randomFact;
-  }
-
-  function getFacts(type) {
-    switch (type) {
-      case 'nutrition':
-        return nutritionFacts;
-      case 'fitness':
-        return fitnessFacts;
-      case 'lifestyle':
-        return lifestyleFacts;
-      default:
-        return [];
-    }
-  }
-</script>
 
 {{> footer}}

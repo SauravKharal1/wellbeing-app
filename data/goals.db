@@ -1,5 +1,5 @@
 {"_id":"6aM856pQMf0f7B8G","userId":"g5dujDEoQSYXkGQ1","category":"Lifestyle","description":"wake up early","startDate":"2023-05-19","endDate":"2023-05-20","completed":true}
-{"_id":"8960rWeO1e7C85J3","userId":"g5dujDEoQSYXkGQ1","category":"Nutrition","description":"have lots of healthy foods","startDate":"2023-05-14","endDate":"2023-05-15","completed":false}
+{"_id":"8960rWeO1e7C85J3","userId":"g5dujDEoQSYXkGQ1","category":"Nutrition","description":"have lots of healthy foods","startDate":"2023-05-14","endDate":"2023-05-15","completed":false,"_method":"PUT"}
 {"_id":"8QwovwNRjVDM4xLa","userId":"FDbk1B2FOvdub4T5","category":"Nutrition","description":"remember to drink more water and 3 pieces of fruit as well","startDate":"2023-05-09","endDate":"2023-06-09","_method":"PUT"}
 {"_id":"CB2UZ8r0cHJM78vY","userId":"g5dujDEoQSYXkGQ1","category":"Nutrition","description":"have calories ","startDate":"2023-05-19","endDate":"2023-06-02","completed":true}
 {"_id":"HEZkWKTpX7XhwUDU","userId":"g5dujDEoQSYXkGQ1","category":"Fitness","description":"lift some weights ","startDate":"2023-05-10","endDate":"2023-05-11","completed":true}

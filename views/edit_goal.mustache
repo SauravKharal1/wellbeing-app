@@ -1,29 +1,33 @@
 {{> header}}
+
 <div class="container">
-  <h1>Edit Goal</h1>
-  <form action="/goals/{{goal._id}}/edit" method="post">
-    <input type="hidden" name="_method" value="PUT">
-    <div class="form-group">
-      <label for="category">Category:</label>
-      <select class="form-control" id="category" name="category" required>
-        <option {{#selectedNutrition}}selected{{/selectedNutrition}}>Nutrition</option>
-        <option {{#selectedFitness}}selected{{/selectedFitness}}>Fitness</option>
-        <option {{#selectedLifestyle}}selected{{/selectedLifestyle}}>Lifestyle</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="description">Description:</label>
-      <textarea class="form-control" id="description" name="description" rows="3" required>{{goal.description}}</textarea>
-    </div>
-    <div class="form-group">
-      <label for="startDate">Start Date:</label>
-      <input type="date" class="form-control" id="startDate" name="startDate" value="{{goal.startDate}}" required>
-    </div>
-    <div class="form-group">
-      <label for="endDate">End Date:</label>
-      <input type="date" class="form-control" id="endDate" name="endDate" value="{{goal.endDate}}" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Update Goal</button>
-  </form>
+  <div class="form-container">
+    <h1 class="text-center">Edit Goal</h1>
+    <form action="/goals/{{goal._id}}/edit" method="post">
+      <input type="hidden" name="_method" value="PUT">
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select class="form-control" id="category" name="category" required>
+          <option {{#selectedNutrition}}selected{{/selectedNutrition}}>Nutrition</option>
+          <option {{#selectedFitness}}selected{{/selectedFitness}}>Fitness</option>
+          <option {{#selectedLifestyle}}selected{{/selectedLifestyle}}>Lifestyle</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="description" rows="3" required>{{goal.description}}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" class="form-control" id="startDate" name="startDate" value="{{goal.startDate}}" required>
+      </div>
+      <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="date" class="form-control" id="endDate" name="endDate" value="{{goal.endDate}}" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Goal</button>
+    </form>
+  </div>
 </div>
+
 {{> footer}}
