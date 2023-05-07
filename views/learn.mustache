@@ -1,0 +1,54 @@
+{{> header}}
+
+<div class="text-center">
+  <h1 class="mt-4">Learn More about Improving</h1>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="box-title">Nutrition Fact</h3>
+      <div class="fact-box" id="nutritionFact">Loading...</div>
+      <button class="btn btn-primary generate-btn" onclick="loadFact('nutrition')">Generate Nutrition Fact</button>
+    </div>
+    <div class="col-md-4">
+      <h3 class="box-title">Fitness Fact</h3>
+      <div class="fact-box" id="fitnessFact">Loading...</div>
+      <button class="btn btn-primary generate-btn" onclick="loadFact('fitness')">Generate Fitness Fact</button>
+    </div>
+    <div class="col-md-4">
+      <h3 class="box-title">Lifestyle Fact</h3>
+      <div class="fact-box" id="lifestyleFact">Loading...</div>
+      <button class="btn btn-primary generate-btn" onclick="loadFact('lifestyle')">Generate Lifestyle Fact</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const nutritionFacts = {{nutritionFacts}};
+  const fitnessFacts = {{fitnessFacts}};
+  const lifestyleFacts = {{lifestyleFacts}};
+
+  function loadFact(type) {
+    const factBox = document.getElementById(`${type}Fact`);
+    const facts = getFacts(type);
+    const randomIndex = Math.floor(Math.random() * facts.length);
+    const randomFact = facts[randomIndex];
+    factBox.textContent = randomFact;
+  }
+
+  function getFacts(type) {
+    switch (type) {
+      case 'nutrition':
+        return nutritionFacts;
+      case 'fitness':
+        return fitnessFacts;
+      case 'lifestyle':
+        return lifestyleFacts;
+      default:
+        return [];
+    }
+  }
+</script>
+
+{{> footer}}

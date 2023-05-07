@@ -1,0 +1,66 @@
+{{> header}}
+<div class="container">
+  <h1>Manage Achievements</h1>
+  <form action="/achievements" method="post">
+    <div class="form-group">
+      <label for="goalId">Related Goal:</label>
+      <select class="form-control" id="goalId" name="goalId">
+        {{#goals}}
+        {{^completed}}
+        <option value="{{_id}}" data-startdate="{{startDate}}" data-category="{{category}}" data-description="{{description}}">{{category}} - {{description}}</option>
+        {{/completed}}
+        {{/goals}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="date">Achievement Date:</label>
+      <input type="date" class="form-control" id="date" name="date" required>
+    </div> 
+    <button type="submit" class="btn btn-primary">Add Achievement</button>
+  </form>
+  <hr>
+  <h2>Current Achievements</h2>
+  <div class="row">
+    {{#achievements}}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-text">Goal Description: {{description}}</h5>
+          
+          <p class="card-text">Achievement Description: {{description}}</p>
+          <p class="card-text">Achievement Date: {{date}}</p>
+          <form action="/achievements/delete/{{_id}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {{/achievements}}
+  </div>
+</div>
+{{> footer}}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const goalSelect = document.getElementById('goalId');
+    const dateInput = document.getElementById('date');
+
+    // Function to update the minimum achievement date based on the selected goal
+    function updateMinAchievementDate() {
+      const selectedGoal = goalSelect.options[goalSelect.selectedIndex];
+      const goalStartDate = selectedGoal.getAttribute('data-startdate');
+      dateInput.setAttribute('min', goalStartDate);
+    }
+
+    // Update the minimum achievement date when the page loads
+    updateMinAchievementDate();
+
+    // Update the minimum achievement date whenever the goal selection changes
+    goalSelect.addEventListener('change', updateMinAchievementDate);
+  });
+</script>

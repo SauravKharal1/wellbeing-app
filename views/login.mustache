@@ -1,0 +1,36 @@
+{{> header}}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 d-flex align-items-center">
+      <img src="/images/Nutrition.jpg" alt="Nutrition" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+      <div class="bg-light p-4 rounded">
+        <h1 class="text-center mb-4">BetterMe</h1>
+        <h3 class="text-center mb-3">Log in:</h3>
+        <form action="/login" method="post">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control rounded" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control rounded" id="password" name="password" required>
+          </div>
+          <div class="text-center mb-3">
+            <button type="submit" class="btn btn-primary rounded">Login</button>
+          </div>
+        </form>
+        <div class="text-center">
+          <p class="mb-3">Dont have an account?</p>
+          <a href="/register" class="btn btn-primary rounded">Register for an account</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 d-flex align-items-center">
+      <img src="/images/Fitness.jpg" alt="Fitness" class="img-fluid">
+    </div>
+  </div>
+  <div class="mt-4"></div>
+</div>
+{{> footer}}

@@ -1,0 +1,62 @@
+{{> header}}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 d-flex align-items-center">
+      <img src="/images/Nutrition.jpg" alt="Nutrition" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+      <div class="bg-light p-4 rounded">
+        <h1 class="text-center mb-4">Join BetterMe</h1>
+        <h3 class="text-center mb-3">Create an account:</h3>
+        <form action="/register" method="post">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control rounded" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control rounded" id="password" name="password" required>
+          </div>
+          <div class="text-center mb-3">
+            <button type="submit" class="btn btn-primary rounded">Register</button>
+          </div>
+        </form>
+        <div class="text-center">
+          <p class="mb-3">Already have an account?</p>
+          <a href="/login" class="btn btn-secondary rounded">Log in</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 d-flex align-items-center">
+      <img src="/images/Fitness.jpg" alt="Fitness" class="img-fluid">
+    </div>
+  </div>
+  <div class="mt-4"></div>
+</div>
+{{> footer}}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const passwordInput = document.getElementById('password');
+    const form = document.querySelector('form');
+
+    function validatePassword() {
+      const password = passwordInput.value;
+      const minLength = 8;
+      const hasNumber = /\d/;
+      const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+
+      if (password.length < minLength || !hasNumber.test(password) || !hasSpecialChar.test(password)) {
+        return false;
+      }
+      return true;
+    }
+
+    form.addEventListener('submit', function (event) {
+      if (!validatePassword()) {
+        event.preventDefault();
+        alert('Password must be at least 8 characters long, contain at least 1 number and at least 1 special character.');
+      }
+    });
+  });
+</script>

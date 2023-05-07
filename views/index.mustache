@@ -1,0 +1,21 @@
+{{> header}}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Welcome to Wellbeing App</h1>
+      <p>Take control of your well-being and achieve your goals.</p>
+      <p>Our health is important because it lays the foundation for a happy and fulfilling life. Good health allows us to enjoy activities, maintain strong relationships, and achieve our personal and professional goals. By focusing on our well-being, we invest in a better future for ourselves and those around us.</p>
+      <br>
+      {{^isAuthenticated}}
+      <p><a href="/register">Register</a> or <a href="/login">Login</a> to get started.</p>
+      {{/isAuthenticated}}
+      {{#isAuthenticated}}
+      <a href="/dashboard" class="btn btn-primary">Go to Dashboard</a>
+      {{/isAuthenticated}}
+    </div>
+    <div class="col-md-6">
+      <img src="/images/Fitness.jpg" alt="Fitness" class="img-fluid">
+    </div>
+  </div>
+</div>
+{{> footer}}
